@@ -11,37 +11,37 @@ map = L.map('map', {
     center: [-7.322739275692331, 109.89261925758824],
     zoom: 13,
     zoomControl: false
-    layers: [grayscale, cities]
+    //layers: [grayscale, cities]
 });
 
 var satellite = L.tileLayer('https://wi.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-   maxZoom: 23,
+   // maxZoom: 23,
 	    attribution: 'Source: Esri, Maxar, Earthstar Geographics, CNES/Airbus DS, USDA FSA, USGS, Getmapping, Aerogrid, IGN, IGP, and the GIS User Community'
     }).addTo(map);
 	
 	var hillshade = L.tileLayer('https://whi.maptiles.arcgis.com/arcgis/rest/services/World_Hillshade/MapServer/tile/{z}/{y}/{x}', {
-	maxZoom: 19,
+	//maxZoom: 19,
 	attribution: 'Sources: Esri, Airbus DS, USGS, NGA, NASA, CGIAR, N Robinson, NCEAS, NLS, OS, NMA, Geodatastyrelsen, Rijkswaterstaat, GSA, Geoland, FEMA, Intermap, and the GIS user community',
 });
 
-var satellite = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+/*var satellite = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 23,
 	
     attributions: ['Powered by Esri',
         'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'
     ],
     id: 'mapbox/light-v9',
-    tileSize: 256,
-    zoomOffset: -1
-}).addTo(map);
-var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //tileSize: 256,
+    //zoomOffset: -1
+}).addTo(map);*/
+/*var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
 	
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+}).addTo(map);*/
 
 
-var Persil_Tanah_WP_Kecamatan_Mojotengah = L.tileLayer.wms('http://localhost:8080/geoserver/sipkelompok3/wms?',{
+/*var Persil_Tanah_WP_Kecamatan_Mojotengah = L.tileLayer.wms('http://localhost:8080/geoserver/sipkelompok3/wms?',{
 layers: 'sipkelompok3:Persil_Tanah_WP_Kecamatan_Mojotengah',
  transparent: 'true',
     format: 'image/png'
@@ -50,7 +50,7 @@ var Persil_Tanah_WP_Kecamatan_Mojotengah = L.tileLayer.wms('http://localhost:808
 layers: 'sipkeoompok3:Persil_Tanah_WP_Kecamatan_Mojotengah',
  transparent: 'true',
     format: 'image/png'
-}).addTo(map);
+}).addTo(map);*/
 
 
 var overlays = L.layerGroup();
@@ -715,15 +715,15 @@ layer_name = undefined;
 
 // function on click of getinfo
 function info() {
-    if (document.getElementById("info_btn").innerHTML == "☰ Activate GetInfo") {
+    if (document.getElementById("info_btn").innerHTML == "☰ Informasi") {
 
-        document.getElementById("info_btn").innerHTML = "☰ De-Activate GetInfo";
+        document.getElementById("info_btn").innerHTML = "☰ Informasi";
         document.getElementById("info_btn").setAttribute("class", "btn btn-danger btn-sm");
         map.on('click', getinfo);
     } else {
 
         map.off('click', getinfo);
-        document.getElementById("info_btn").innerHTML = "☰ Activate GetInfo";
+        document.getElementById("info_btn").innerHTML = "☰ Informasi";
         document.getElementById("info_btn").setAttribute("class", "btn btn-success btn-sm");
 
     }
@@ -802,7 +802,7 @@ function clear_all() {
     document.getElementById('legend').style.height = '0%';
 
     map.off('click', getinfo);
-    document.getElementById("info_btn").innerHTML = "☰ Activate GetInfo";
+    document.getElementById("info_btn").innerHTML = "☰ Informasi";
     document.getElementById("info_btn").setAttribute("class", "btn btn-success btn-sm");
 	
 	overlays.eachLayer(function (layer) {
